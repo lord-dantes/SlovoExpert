@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: grey;
+}
+
+
+/* Font */
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url(fonts/BebasNeue/BebasNeue-Bold.otf);
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url(fonts/OpenSans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url(fonts/OpenSans/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url(fonts/Raleway/Raleway-Bold.ttf);
+}
+
+
+/* FontEnd */
+
+.container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.about-masterclass__wrapper {
+    padding: 60px 0px 80px;
+    background-color: #ffffff;
+}
+
+.about-masterclass-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-masterclass__wrapper h2,
+.final-masterclass__wrapper h2 {
+    margin: 0px 0px 40px;
+    font-family: 'BebasNeue';
+    font-weight: bold;
+    font-size: 40px;
+    color: #000000;
+}
+
+.about-masterclass-box__leftside ul {
+    margin: 0px;
+    padding-left: 30px;
+    list-style-image: url(img/about-li--img.svg);
+}
+
+.about-masterclass-box__leftside ul li {
+    margin-bottom: 15px;
+    padding-left: 24px;
+    font-family: 'OpenSans';
+    font-size: 24px;
+    line-height: 37px;
+}
+
+.about-masterclass-box__leftside ul li b {
+    font-family: 'OpenSansBold';
+}
+
+.masterClassLink {
+    margin: 0 auto;
+    width: 435px;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 38px 15px;
+    background: linear-gradient(180.45deg, #FFA5A5 -24.41%, #F32828 98.06%);
+    border-radius: 16px;
+    font-size: 24px;
+    line-height: 28px;
+    text-decoration: none;
+    font-family: 'Raleway';
+    text-transform: uppercase;
+    color: #FFFFFF;
+    position: relative;
+}
+
+.masterClassLink img {
+    margin-left: 25px;
+    position: absolute;
+    right: 45px;
+    animation: masterClassCursor 0.3s infinite;
+}
+
+@keyframes masterClassCursor {
+    0% {
+        margin: 0px -2px;
+    }
+    20% {
+        margin: 2px 0px;
+    }
+    40% {
+        margin: 0px 3px;
+    }
+    60% {
+        margin: -2px -2px;
+    }
+    80% {
+        margin: 0px 2px;
+    }
+    100% {
+        margin: 0px -2px;
+    }
+}
+
+
+/*  */
+
+.final-masterclass__wrapper {
+    padding: 80px 0px;
+    background: #f8f8f8;
+}
+
+.final-masterclass__wrapper h2 {
+    text-align: center;
+}
+
+.final-masterclass-features {
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.final-masterclass-features__item {
+    width: 250px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+}
+
+.final-masterclass-features__item img {
+    margin-bottom: 20px;
+    margin-top: auto;
+}
+
+.final-masterclass-features__item p:nth-child(2) {
+    margin: 0px;
+    height: 66px;
+    font-family: 'OpenSansBold';
+    font-size: 24px;
+    line-height: 33px;
+}
+
+.final-masterclass-features__item p:last-child {
+    margin: 0px;
+    font-family: 'OpenSans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+}
+
+
+/*  */

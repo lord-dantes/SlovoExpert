@@ -51,7 +51,8 @@ body {
 }
 
 .about-masterclass__wrapper h2,
-.final-masterclass__wrapper h2 {
+.final-masterclass__wrapper h2,
+.owner-masterclass__wrapper h2 {
     margin: 0px 0px 40px;
     font-family: 'BebasNeue';
     font-weight: bold;
@@ -59,13 +60,15 @@ body {
     color: #000000;
 }
 
-.about-masterclass-box__leftside ul {
+.about-masterclass-box__leftside ul,
+.owner-masterclass-box__rightside ul {
     margin: 0px;
     padding-left: 30px;
     list-style-image: url(img/about-li--img.svg);
 }
 
-.about-masterclass-box__leftside ul li {
+.about-masterclass-box__leftside ul li,
+.owner-masterclass-box__rightside ul li {
     margin-bottom: 15px;
     padding-left: 24px;
     font-family: 'OpenSans';
@@ -178,3 +181,42 @@ body {
 
 
 /*  */
+
+.owner-masterclass__wrapper {
+    padding: 97px 0px 80px;
+    background: #FFF8AF;
+}
+
+.owner-masterclass__wrapper h2 {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.owner-masterclass-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.owner-masterclass-box__leftside {
+    margin: -55px 75px 0px 45px;
+}
+
+.owner-masterclass-box__rightside {
+    margin-top: 45px;
+}
+
+.owner-masterclass-box__rightside h3 {
+    margin: 0px 0px 22px;
+    font-family: 'OpenSansBold';
+    font-size: 30px;
+    color: #343434;
+}
+
+.owner-masterclass-box__rightside ul {
+    list-style-image: url(img/owner-li--img.svg);
+}
+
+.owner-masterclass-box__rightside ul li {
+    padding-left: 9px;
+}

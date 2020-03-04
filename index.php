@@ -9,6 +9,25 @@
 
 <body>
     <!-- MC with class is //masterclass// -->
+    <section class="mc__wrapper">
+        <div class="container">
+            <div class="mc__box">
+                <div class="mc__box__leftside">
+                    <img class="mc__box__logo" src="img/logo.svg" alt="">
+                    <h1>Запустите машину <br> онлайн-продаж</h1>
+                    <p class="mc__box__description">Как за 9 простых шагов начать получать от 50 клиентов в день из интернет в любую нишу</p>
+                    <a class="mc__box__link" href="javascript:void(0);">Зарегистрироваться<img src="img/linkCursorIcon.svg" alt=""></a>
+                    <div class="mc__box__timer">
+                        <p class="mc__box__timer-title">Регистрируйся в течении</p>
+                        <span class="mc__box__timer--seconds">127</span>
+                        <p class="mc__box__timer-seconds">секунд</p>
+                    </div>
+                    <p class="mc__box__timer-gift">И получите в подарок</p>
+                </div>
+                <div class="mc__box_rightside"></div>
+            </div>
+        </div>
+    </section>
     <section class="aboutMC__wrapper">
         <div class="container">
             <div class="aboutMC__box">
@@ -74,43 +93,49 @@
     <section class="regMC__wrapper">
         <div class="container">
             <h2>Зарегистрируйтесь</h2>
-            <form action="POST">
-                <input type="text" name="name" placeholder="Ваше имя">
-                <input type="text" name="phone" placeholder="+380506013432">
-                <input type="email" name="email" placeholder="Ваш E-mail">
-                <input type="submit" value="Зарегистрироваться">
+            <form action="" method="POST">
+                <input class="regMC__name" type="text" name="name" placeholder="Ваше имя">
+                <input class="regMC__phone" type="text" name="phone" placeholder="Ваш номер телефона">
+                <input class="regMC__email" type="email" name="email" placeholder="Ваш E-mail">
+                <input class="regMC__btn" type="button" value="Зарегистрироваться">
             </form>
-            <div id="resultRegForm"></div>
+            <div class="resultRegForm"></div>
         </div>
     </section>
-    <!-- regForm -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        var name = $('.regMC__wrapper form input[name="name"]');
-        var email = $('.regMC__wrapper form input[name="email"]');
-        var phone = $('.regMC__wrapper form input[name="phone"]');
-        var button = $('.regMC__wrapper form input[type="submit"]');
+        var haveSec = jQuery('.mc__box__timer--seconds').html();
+        var newSec = haveSec - 1;
+        let timerId = setInterval(() => , 1000);
+        setTimeout(() => { clearInterval(timerId); alert('stop'); }, 10000);
+    </script>
+    <!-- regForm -->
+    <script src="libs/jQueryInputMask/jquery.inputmask.js"></script>    
+    <script>
+        jQuery('.regMC__phone').inputmask("+38 (999) 99 99 999");
+        var button = jQuery('.regMC__btn');
         button.click(function() {
+            var name = jQuery('.regMC__name');
+            var email = jQuery('.regMC__email');
+            var phone = jQuery('.regMC__phone');
+            // 
             var user_name = name.val();
             var user_email = email.val();
             var user_email_valid = user_email.indexOf('@');
             var user_phone = phone.val();
-
+            // 
             if (user_name == "") {
-                $("#resultRegForm").addClass('error');
-                $("#resultRegForm").html("Введите имя, пожалуйста");
-            } else if (user_email_valid == -1) {
-                $("#resultRegForm").addClass('error');
-                $("#resultRegForm").html("Введите почту, пожалуйста");
+                jQuery(".resultRegForm").addClass('resultRegForm__error');
+                jQuery(".resultRegForm").html("Введите имя, пожалуйста");
             } else if (user_phone == "") {
-                $("#resultRegForm").addClass('error');
-                $("#resultRegForm").html("Введите номер телефона, пожалуйста");
-            } else if (grecaptcha.getResponse() == "") {
-                $("#resultRegForm").addClass('error');
-                $("#resultRegForm").html("Пройдите капчу, пожалуйста");
+                jQuery(".resultRegForm").addClass('resultRegForm__error');
+                jQuery(".resultRegForm").html("Введите номер телефона, пожалуйста");
+            } else if (user_email_valid == -1) {
+                jQuery(".resultRegForm").addClass('resultRegForm__error');
+                jQuery(".resultRegForm").html("Введите почту, пожалуйста");
             } else if (user_name != "" && user_email != "" && user_phone != "") {
                 $.ajax({
-                    url: "<?php bloginfo('template_url') ?>/send.php",
+                    url: "regForm.php",
                     type: "post",
                     data: {
                         "name": user_name,
@@ -118,12 +143,12 @@
                         "phone": user_phone,
                     },
                     error: function() {
-                        $('#resultRegForm').removeClass('beforesend');
-                        $("#resultRegForm").addClass('error');
-                        $("#resultRegForm").html("Произошла ошибка!");
+                        jQuery('.resultRegForm').removeClass('beforesend');
+                        jQuery(".resultRegForm").addClass('resultRegForm__error');
+                        jQuery(".resultRegForm").html("Произошла ошибка!");
                     },
                     success: function(result) {
-                        window.location.href = "#";
+                        window.location.href = "https://bm.slovo.expert";
                     }
                 });
             }

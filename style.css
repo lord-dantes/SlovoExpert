@@ -5,7 +5,7 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color: grey;
+    /* background-color: grey; */
 }
 
 
@@ -38,6 +38,110 @@ body {
     margin: 0 auto;
     width: 1200px;
 }
+
+.mc__wrapper {
+    padding: 30px 0px 90px;
+    background: url(img/mcBackground.svg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.mc__box {
+    display: flex;
+}
+
+.mc__box__leftside {
+    max-width: 450px;
+}
+
+.mc__box__logo {
+    margin-bottom: 100px;
+}
+
+.mc__wrapper h1 {
+    margin: 0px 0px 25px 0px;
+    font-family: 'BebasNeue';
+    font-size: 48px;
+    color: #202020;
+}
+
+.mc__box__description {
+    margin: 0px 0px 30px 0px;
+    max-width: 400px;
+    font-family: 'OpenSans';
+    font-size: 24px;
+    color: #000000;
+}
+
+.mc__box__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 435px;
+    height: 78px;
+    padding: 27px 38px;
+    background: linear-gradient(180.45deg, #FFA5A5 -24.41%, #F32828 98.06%);
+    border-radius: 16px;
+    font-family: 'Raleway';
+    font-weight: 100;
+    font-size: 24px;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.mc__box__link img {
+    margin-left: 25px;
+    position: absolute;
+    right: 45px;
+    animation: mcCursorDragable 0.3s infinite;
+}
+
+.mc__box__timer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.mc__box__timer-title {
+    font-family: 'OpenSans';
+    font-size: 18px;
+    line-height: 25px;
+    color: #3F3F3F;
+    max-width: 150px;
+    margin: 0px 25px 0px 0px;
+}
+
+.mc__box__timer--seconds {
+    font-family: 'BebasNeue';
+    font-size: 64px;
+    line-height: 64px;
+    color: #3F3F3F;
+    margin: 0px 25px 0px 0px;
+    margin-right: 25px;
+}
+
+.mc__box__timer-seconds {
+    font-family: 'BebasNeue';
+    font-size: 24px;
+    line-height: 24px;
+    color: #3F3F3F;
+    margin: 0px;
+}
+
+.mc__box__timer-gift {
+    font-family: 'OpenSansBold';
+    font-size: 18px;
+    line-height: 25px;
+    color: #3F3F3F;
+    margin: 0px;
+}
+
+
+/*  */
 
 .aboutMC__wrapper {
     padding: 60px 0px 80px;
@@ -228,6 +332,7 @@ body {
 .regMC__wrapper {
     padding: 80px 0px 88px;
     background: url(img/regBackground.png);
+    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -247,9 +352,9 @@ body {
     border: 0px;
 }
 
-.regMC__wrapper form input:not([type="submit"]) {
+.regMC__wrapper form input:not([type="button"]) {
     margin-bottom: 15px;
-    padding: 20px 160px;
+    padding: 20px 135px;
     background: #FFFFFF;
     border-radius: 5px;
     text-align: center;
@@ -259,16 +364,16 @@ body {
     transition: all 300ms;
 }
 
-.regMC__wrapper form input:not([type="submit"]):invalid {
+.regMC__wrapper form input:not([type="button"]):invalid {
     border-color: #bc1515;
 }
 
-.regMC__wrapper form input:not([type="submit"]):focus {
+.regMC__wrapper form input:not([type="button"]):focus {
     outline: 0;
     border: solid 1.5px #d9afff;
 }
 
-.regMC__wrapper form input:not([type="submit"])::placeholder {
+.regMC__wrapper form input:not([type="button"])::placeholder {
     font-family: 'OpenSans';
     font-style: normal;
     font-weight: normal;
@@ -277,7 +382,7 @@ body {
     color: #565656;
 }
 
-.regMC__wrapper form input[type="submit"] {
+.regMC__wrapper form input[type="button"] {
     padding: 16px 43px;
     font-family: 'OpenSansBold';
     font-size: 24px;
@@ -286,3 +391,28 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+/* resultRegistrationForm */
+
+.resultRegForm {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: auto;
+    padding: 15px 30px;
+    background: #fff;
+    font-family: OpenSans;
+    border: solid 5px transparent;
+    transition: all 300ms;
+    opacity: 0;
+}
+
+.resultRegForm__error {
+    opacity: 1;
+    border-color: #f53f3f;
+    transition: all 300ms;
+}
+
+
+/*  */

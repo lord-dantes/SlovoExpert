@@ -3,8 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-TileColor" content="#fff8af">
+    <meta name="theme-color" content="#fff8af">
     <title>Slovo.Expert</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#282828">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
 </head>
 
 <body>
@@ -15,11 +24,11 @@
                 <div class="mc__box__leftside">
                     <img class="mc__box__logo" src="img/logo.svg" alt="">
                     <h1>Запустите машину <br> онлайн-продаж</h1>
-                    <p class="mc__box__description">Как за 9 простых шагов начать получать от 50 клиентов в день из интернет в любую нишу</p>
+                    <p class="mc__box__description">Как создать машину онлайн продаж для любого бизнеса за <br>7 простых шагов</p>
                     <a class="mc__box__link" href="javascript:void(0);">Зарегистрироваться<img src="img/linkCursorIcon.svg" alt=""></a>
                     <div class="mc__box__timer">
                         <p class="mc__box__timer-title">Регистрируйся в течении</p>
-                        <span class="mc__box__timer--seconds">127</span>
+                        <span class="mc__box__timer--seconds" id="countdown"></span>
                         <p class="mc__box__timer-seconds">секунд</p>
                     </div>
                     <p class="mc__box__timer-gift">И получите в подарок</p>
@@ -42,7 +51,7 @@
                     </ul>
                 </div>
                 <div class="aboutMC__box__rightside">
-                    <img src="img/aboutDescriptionImage.svg" alt="">
+                    <img src="img/NewaboutDescriptionImage.svg" alt="">
                 </div>
             </div>
             <a class="mcLink" href="javascript:void(0);">Зарегистрироваться<img src="img/linkCursorIcon.svg" alt=""></a>
@@ -102,15 +111,77 @@
             <div class="resultRegForm"></div>
         </div>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__box">
+                <div>Copyright Slovo.Expert © 2020</div>
+                <div>ул. Михайловская, 14А</div>
+                <div>contact@slovo.expert</div>
+            </div>
+        </div>
+    </footer>
+    <div class="background"></div>
+    <div class="formModal">
+        <h2>Зарегистрироваться</h2>
+        <form action="" method="POST">
+            <input class="regMC__name regMC__name--Modal" type="text" name="nameModal" placeholder="Ваше имя">
+            <input class="regMC__phone regMC__phone--Modal" type="text" name="phoneModal" placeholder="Ваш номер телефона">
+            <input class="regMC__email regMC__email--Modal" type="email" name="emailModal" placeholder="Ваш E-mail">
+            <input class="regMC__btn--Modal" type="button" value="Зарегистрироваться">
+        </form>
+        <span class="formModal--close">+</span>
+    </div>
+    <script src="libs/jQuery/jquery.js"></script>
+    <script src="libs/jQueryInputMask/jquery.inputmask.js"></script>
+    <script src="libs/jQueryTimer/jquery.timer.js"></script>
+    <script src="libs/jQueryTimer/res/demo.js"></script>
+    <script src="main.js"></script>
+    <!-- modalForm -->
     <script>
-        var haveSec = jQuery('.mc__box__timer--seconds').html();
-        var newSec = haveSec - 1;
-        let timerId = setInterval(() => , 1000);
-        setTimeout(() => { clearInterval(timerId); alert('stop'); }, 10000);
+        jQuery('.regMC__phone--Modal').inputmask("+38 (999) 99 99 999");
+        var buttonM = jQuery('.regMC__btn--Modal');
+        buttonM.click(function() {
+            var name = jQuery('.regMC__name--Modal');
+            var email = jQuery('.regMC__email--Modal');
+            var phone = jQuery('.regMC__phone--Modal');
+            // 
+            var user_name = name.val();
+            var user_email = email.val();
+            var user_email_valid = user_email.indexOf('@');
+            var user_phone = phone.val();
+            // 
+            if (user_name == "") {
+                jQuery(".resultRegForm").addClass('resultRegForm__error');
+                jQuery(".resultRegForm").html("Введите имя, пожалуйста");
+            } else if (user_phone == "") {
+                jQuery(".resultRegForm").addClass('resultRegForm__error');
+                jQuery(".resultRegForm").html("Введите номер телефона, пожалуйста");
+            } else if (user_email_valid == -1) {
+                jQuery(".resultRegForm").addClass('resultRegForm__error');
+                jQuery(".resultRegForm").html("Введите почту, пожалуйста");
+            } else if (user_name != "" && user_email != "" && user_phone != "") {
+                $.ajax({
+                    url: "regForm.php",
+                    type: "post",
+                    data: {
+                        "name": user_name,
+                        "email": user_email,
+                        "phone": user_phone,
+                    },
+                    error: function() {
+                        jQuery('.resultRegForm').removeClass('beforesend');
+                        jQuery(".resultRegForm").addClass('resultRegForm__error');
+                        jQuery(".resultRegForm").html("Произошла ошибка!");
+                    },
+                    success: function(result) {
+                        window.location.href = "https://bm.slovo.expert";
+                    }
+                });
+            }
+        });
     </script>
+    <!-- modalForm end -->
     <!-- regForm -->
-    <script src="libs/jQueryInputMask/jquery.inputmask.js"></script>    
     <script>
         jQuery('.regMC__phone').inputmask("+38 (999) 99 99 999");
         var button = jQuery('.regMC__btn');
@@ -170,8 +241,8 @@
             width: 100%;
             height: 100%;
             min-width: 1000px;
-            background: #fff26e url(img/preloader.svg) center center no-repeat;
-            background-size: 73px;
+            background: #fff26e url(img/logo.svg) center center no-repeat;
+            background-size: 200px;
         }
     </style>
     <div id="hellopreloader">

@@ -5,7 +5,7 @@
 body {
     margin: 0px;
     padding: 0px;
-    /* background-color: grey; */
+    overflow-x: hidden;
 }
 
 
@@ -175,7 +175,7 @@ body {
 .aboutMC__box__leftside ul li,
 .ownerMC__box__rightside ul li {
     margin-bottom: 15px;
-    padding-left: 24px;
+    padding-left: 15px;
     font-family: 'OpenSans';
     font-size: 24px;
     line-height: 37px;
@@ -341,18 +341,21 @@ body {
     text-align: center;
 }
 
-.regMC__wrapper form {
+.regMC__wrapper form,
+.formModal form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.regMC__wrapper form input {
+.regMC__wrapper form input,
+.formModal form input {
     border: 0px;
 }
 
-.regMC__wrapper form input:not([type="button"]) {
+.regMC__wrapper form input:not([type="button"]),
+.formModal form input:not([type="button"]) {
     margin-bottom: 15px;
     padding: 20px 135px;
     background: #FFFFFF;
@@ -364,16 +367,19 @@ body {
     transition: all 300ms;
 }
 
-.regMC__wrapper form input:not([type="button"]):invalid {
+.regMC__wrapper form input:not([type="button"]):invalid,
+.formModal form input:not([type="button"]):invalid {
     border-color: #bc1515;
 }
 
-.regMC__wrapper form input:not([type="button"]):focus {
+.regMC__wrapper form input:not([type="button"]):focus,
+.formModal form input:not([type="button"]):focus {
     outline: 0;
     border: solid 1.5px #d9afff;
 }
 
-.regMC__wrapper form input:not([type="button"])::placeholder {
+.regMC__wrapper form input:not([type="button"])::placeholder,
+.formModal form input:not([type="button"])::placeholder {
     font-family: 'OpenSans';
     font-style: normal;
     font-weight: normal;
@@ -382,7 +388,8 @@ body {
     color: #565656;
 }
 
-.regMC__wrapper form input[type="button"] {
+.regMC__wrapper form input[type="button"],
+.formModal form input[type="button"] {
     padding: 16px 43px;
     font-family: 'OpenSansBold';
     font-size: 24px;
@@ -406,6 +413,7 @@ body {
     border: solid 5px transparent;
     transition: all 300ms;
     opacity: 0;
+    z-index: 100;
 }
 
 .resultRegForm__error {
@@ -416,3 +424,82 @@ body {
 
 
 /*  */
+
+.footer__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0px;
+    font-family: 'OpenSans';
+    font-size: 18px;
+}
+
+
+/*  */
+
+.background {
+    display: none;
+}
+
+.active-background {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000087;
+    z-index: 50;
+}
+
+.formModal {
+    display: none;
+}
+
+.formModal h2 {
+    margin-top: 0px;
+    font-family: 'BebasNeue';
+    font-weight: bold;
+    font-size: 40px;
+    color: #000000;
+}
+
+.formModal--close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 44px;
+    font-weight: bold;
+    transform: rotate(45deg);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.active-formModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    max-width: 400px;
+    width: 100%;
+    max-height: 500px;
+    height: 100%;
+    margin: auto;
+    background: #fff;
+}
+
+.formModal form input:not([type="button"]) {
+    padding: 20px 65px;
+    background: #bebebe24;
+}

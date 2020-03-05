@@ -1,0 +1,69 @@
+@media screen and (max-width: 992px) {
+    .container {
+        width: 100%;
+    }
+    .mc__box {
+        flex-direction: column;
+        padding: 0px 20px;
+    }
+    .mc__box__link {
+        max-width: 450px;
+        width: 100%;
+        padding: 27px 18px;
+        font-size: 19px;
+    }
+    .mc__box__link img {
+        right: 25px;
+    }
+    .mcLink {
+        max-width: 435px;
+        padding: 15px 20px 15px;
+        font-size: 22px;
+        width: 95%;
+    }
+    .mcLink img {
+        right: 20px;
+    }
+    .aboutMC__box {
+        flex-direction: column;
+        padding: 0px 20px;
+    }
+    .aboutMC__box__rightside img {
+        width: 100%;
+    }
+    .finalMC__features {
+        flex-direction: column;
+    }
+    .ownerMC__box {
+        flex-direction: column;
+    }
+    .ownerMC__box__leftside {
+        text-align: center;
+        margin: 0px;
+    }
+    .ownerMC__box__leftside img {
+        width: 90%;
+    }
+    .ownerMC__box__rightside {
+        padding: 0px 20px;
+    }
+    .regMC__wrapper form input:not([type="button"]) {
+        width: 90%;
+        padding: 20px 0px;
+    }
+    .footer__box {
+        flex-direction: column;
+    }
+    .active-formModal {
+        width: 90%;
+    }
+    .formModal form input:not([type="button"]) {
+        padding: 20px 35px;
+    }
+    .formModal form input[type="button"] {
+        padding: 15px;
+    }
+    .resultRegForm {
+        padding: 15px;
+    }
+}

@@ -12,7 +12,7 @@
 		$bs = 'info@buy-sell.com.ua'; // e-mail company
 		$sb = 'slava.bandura1@gmail.com'; // e-mail dev
 
-		$to = $sb . ', ' . $sb; /* Адрес, куда отправляем письма*/
+		$to = $bs . ', ' . $ev; /* Адрес, куда отправляем письма*/
 		$subject = "[Slovo] " . $name . " | " . $phone;
 		$headers = "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/html; charset=utf-8\r\n";

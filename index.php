@@ -51,7 +51,7 @@
                     </ul>
                 </div>
                 <div class="aboutMC__box__rightside">
-                    <img src="img/NewaboutDescriptionImage.png" alt="">
+                    <img src="img/NewAboutDescriptionImage.png" alt="">
                 </div>
             </div>
             <a class="mcLink" href="javascript:void(0);">Зарегистрироваться<img src="img/linkCursorIcon.svg" alt=""></a>

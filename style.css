@@ -138,6 +138,20 @@ body {
     line-height: 25px;
     color: #3F3F3F;
     margin: 0px;
+    position: relative;
+}
+
+.mc__box__timer-gift::after {
+    content: "";
+    top: 10px;
+    right: -40px;
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    background: url(img/giftPDFIcon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 5px 6px #f3282899);
 }
 
 
@@ -183,6 +197,14 @@ body {
 
 .aboutMC__box__leftside ul li b {
     font-family: 'OpenSansBold';
+}
+
+.aboutMC__box__rightside {
+    width: 50%;
+}
+
+.aboutMC__box__rightside img {
+    width: 100%;
 }
 
 .mcLink {

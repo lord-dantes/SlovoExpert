@@ -28,6 +28,9 @@
         flex-direction: column;
         padding: 0px 20px;
     }
+    .aboutMC__box__rightside {
+        width: 100%;
+    }
     .aboutMC__box__rightside img {
         width: 100%;
     }
@@ -65,5 +68,14 @@
     }
     .resultRegForm {
         padding: 15px;
+    }
+    .mc__box__timer-seconds {
+        display: none;
+    }
+    .mc__box__timer-gift {
+        width: 85%;
+    }
+    .mc__box__timer-gift::after {
+        right: -60px;
     }
 }

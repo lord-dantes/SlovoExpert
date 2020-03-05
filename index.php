@@ -31,7 +31,7 @@
                         <span class="mc__box__timer--seconds" id="countdown"></span>
                         <p class="mc__box__timer-seconds">секунд</p>
                     </div>
-                    <p class="mc__box__timer-gift">И получите в подарок</p>
+                    <p class="mc__box__timer-gift">При регистрации вы получите бонус. <br>5 универсальных постов, которые принесли больше 100 000$ в продажах</p>
                 </div>
                 <div class="mc__box_rightside"></div>
             </div>
@@ -51,7 +51,7 @@
                     </ul>
                 </div>
                 <div class="aboutMC__box__rightside">
-                    <img src="img/NewaboutDescriptionImage.svg" alt="">
+                    <img src="img/NewaboutDescriptionImage.png" alt="">
                 </div>
             </div>
             <a class="mcLink" href="javascript:void(0);">Зарегистрироваться<img src="img/linkCursorIcon.svg" alt=""></a>
@@ -240,7 +240,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            min-width: 1000px;
             background: #fff26e url(img/logo.svg) center center no-repeat;
             background-size: 200px;
         }

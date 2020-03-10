@@ -1,9 +1,8 @@
 <?php
 	$name = $_POST["name"];
-	$email = $_POST["email"];
 	$phone = $_POST["phone"];
 //  Cheking valid fields
-	if($name=="" or $email=="" or $phone==""){
+	if($name=="" or $phone==""){
 		echo "Заполните все поля"; // Fill in the fields
     }
 	else{
@@ -13,6 +12,7 @@
 		$sb = 'slava.bandura1@gmail.com'; // e-mail dev
 
 		$to = $bs . ', ' . $ev; /* Адрес, куда отправляем письма*/
+		// $to = $sb; /* Адрес, куда отправляем письма*/
 		$subject = "[Slovo] " . $name . " | " . $phone;
 		$headers = "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/html; charset=utf-8\r\n";
@@ -21,7 +21,6 @@
 		/*ВО ВНУТРЬ ПЕРЕМЕННОЙ $message ЗАПИСЫВАЕМ ДАННЫЕ ИЗ ПОЛЕЙ */
 		$message .=
 		"Имя пользователя: " . $name . "<br>"
-		. "Почта: ".$email."<br>"
 		. "Телефон: ".$phone."<br>";
 
 		/*ДЛЯ ОТЛАДКИ ВЫ МОЖЕТЕ ПРОВЕРИТЬ ПРАВИЛЬНО ЛИ ЗАПИСАЛИCM ДАННЫЕ ИЗ ПОЛЕЙ*/

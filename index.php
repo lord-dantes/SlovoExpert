@@ -17,6 +17,47 @@
 </head>
 
 <body>
+    <!-- preloader -->
+    <style type="text/css">
+        #hellopreloader>p {
+            display: none;
+        }
+        
+        #hellopreloader_preload {
+            display: block;
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff26e url(img/logo.svg) center center no-repeat;
+            background-size: 200px;
+        }
+    </style>
+    <div id="hellopreloader">
+        <div id="hellopreloader_preload"></div>
+    </div>
+    <script type="text/javascript">
+        var hellopreloader = document.getElementById("hellopreloader_preload");
+
+        function fadeOutnojquery(el) {
+            el.style.opacity = 1;
+            var interhellopreloader = setInterval(function() {
+                el.style.opacity = el.style.opacity - 0.05;
+                if (el.style.opacity <= 0.05) {
+                    clearInterval(interhellopreloader);
+                    hellopreloader.style.display = "none";
+                }
+            }, 16);
+        }
+        window.onload = function() {
+            setTimeout(function() {
+                fadeOutnojquery(hellopreloader);
+            }, 300);
+        };
+    </script>
+    <!-- preloader end -->
     <!-- MC with class is //masterclass// -->
     <section class="mc__wrapper">
         <div class="container">
@@ -126,7 +167,6 @@
         <form action="" method="POST">
             <input class="regMC__name regMC__name--Modal" type="text" name="nameModal" placeholder="Ваше имя">
             <input class="regMC__phone regMC__phone--Modal" type="text" name="phoneModal" placeholder="Ваш номер телефона">
-            <input class="regMC__email regMC__email--Modal" type="email" name="emailModal" placeholder="Ваш E-mail">
             <input class="regMC__btn--Modal" type="button" value="Зарегистрироваться">
         </form>
         <span class="formModal--close">+</span>
@@ -142,12 +182,9 @@
         var buttonM = jQuery('.regMC__btn--Modal');
         buttonM.click(function() {
             var name = jQuery('.regMC__name--Modal');
-            var email = jQuery('.regMC__email--Modal');
             var phone = jQuery('.regMC__phone--Modal');
             // 
             var user_name = name.val();
-            var user_email = email.val();
-            var user_email_valid = user_email.indexOf('@');
             var user_phone = phone.val();
             // 
             if (user_name == "") {
@@ -156,16 +193,12 @@
             } else if (user_phone == "") {
                 jQuery(".resultRegForm").addClass('resultRegForm__error');
                 jQuery(".resultRegForm").html("Введите номер телефона, пожалуйста");
-            } else if (user_email_valid == -1) {
-                jQuery(".resultRegForm").addClass('resultRegForm__error');
-                jQuery(".resultRegForm").html("Введите почту, пожалуйста");
-            } else if (user_name != "" && user_email != "" && user_phone != "") {
+            } else if (user_name != "" && user_phone != "") {
                 $.ajax({
                     url: "regForm.php",
                     type: "post",
                     data: {
                         "name": user_name,
-                        "email": user_email,
                         "phone": user_phone,
                     },
                     error: function() {
@@ -174,7 +207,7 @@
                         jQuery(".resultRegForm").html("Произошла ошибка!");
                     },
                     success: function(result) {
-                        window.location.href = "https://bm.slovo.expert";
+                        window.location.href = "https://wep.wf/mu34lm";
                     }
                 });
             }
@@ -219,54 +252,13 @@
                         jQuery(".resultRegForm").html("Произошла ошибка!");
                     },
                     success: function(result) {
-                        window.location.href = "https://bm.slovo.expert";
+                        window.location.href = "https://wep.wf/mu34lm";
                     }
                 });
             }
         });
     </script>
     <!-- regForm end -->
-    <!-- preloader -->
-    <style type="text/css">
-        #hellopreloader>p {
-            display: none;
-        }
-        
-        #hellopreloader_preload {
-            display: block;
-            position: fixed;
-            z-index: 99999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff26e url(img/logo.svg) center center no-repeat;
-            background-size: 200px;
-        }
-    </style>
-    <div id="hellopreloader">
-        <div id="hellopreloader_preload"></div>
-    </div>
-    <script type="text/javascript">
-        var hellopreloader = document.getElementById("hellopreloader_preload");
-
-        function fadeOutnojquery(el) {
-            el.style.opacity = 1;
-            var interhellopreloader = setInterval(function() {
-                el.style.opacity = el.style.opacity - 0.05;
-                if (el.style.opacity <= 0.05) {
-                    clearInterval(interhellopreloader);
-                    hellopreloader.style.display = "none";
-                }
-            }, 16);
-        }
-        window.onload = function() {
-            setTimeout(function() {
-                fadeOutnojquery(hellopreloader);
-            }, 300);
-        };
-    </script>
-    <!-- preloader end -->
 </body>
 
 </html>

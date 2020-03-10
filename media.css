@@ -1,3 +1,12 @@
+@media screen and (min-width: 1200px) {
+    .mc__wrapper {
+        padding: 30px 0px 90px;
+        background: url(img/mcBackground.svg);
+        background-attachment: fixed;
+        background-size: 100% 1000px;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .container {
         width: 100%;
